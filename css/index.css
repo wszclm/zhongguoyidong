@@ -2,7 +2,7 @@
 * @Author: lenovo
 * @Date:   2017-12-20 19:57:09
 * @Last Modified by:   Your Name
-* @Last Modified time: 2017-12-24 22:49:09
+* @Last Modified time: 2017-12-25 14:18:30
 */
 @import url('base.css');
 
@@ -219,11 +219,16 @@ nav{
 	line-height: 50px;
 	color: #b0b0b0;
 }
-.bannerv{
+.bannerv1{
 	width: 705px;
 	height: 398px;
 	position: relative;
 	float: left;
+}
+.bannerv{
+	width: 100%;
+	height: 100%;
+	display: block;
 }
 .bannerv li{
 	width: 100%;
@@ -231,6 +236,13 @@ nav{
 	position: absolute;
 	left: 0;
 	top: 0;
+	z-index: 0;
+	opacity: 0;
+	transition: 1s;
+}
+.bannerv li.active{
+	z-index: 9;
+	opacity: 1;
 }
 .bannerv li a{
 	width: 100%;
@@ -261,7 +273,9 @@ nav{
 	margin-top: auto;
 	margin-bottom: auto;
 	left: 0;
+	z-index: 10;
 	opacity: 0;
+	cursor: pointer;
 }
 .bnvy{
 	width: 34px;
@@ -277,15 +291,23 @@ nav{
 	margin-top: auto;
 	margin-bottom: auto;
 	right: 0;
+	z-index: 10;
 	opacity: 0;
+	cursor: pointer;
 }
-.bannerv:hover .bnvz{
+.bannerv1:hover .bnvz:hover{
+	background: rgba(0, 0, 0, 0.2);
+}
+.bannerv1:hover .bnvy:hover{
+	background: rgba(0, 0, 0, 0.2);
+}
+.bannerv1:hover .bnvz{
 	opacity: 1;
 }
-.bannerv:hover .bnvy{
+.bannerv1:hover .bnvy{
 	opacity: 1;
 }
-.bannerv main{
+.banbox{
 	width: 190px;
 	height: 10px;
 	position: absolute;
@@ -294,21 +316,24 @@ nav{
 	margin-left: auto;
 	margin-right: auto;
 	bottom: 16px;
+	z-index: 10;
 }
-.bannerv main div{
+.banbox li{
 	width: 10px;
 	height: 10px;
 	float: left;
 	border-radius: 50%;
 	background: rgba(0, 0, 0, 0.5);
 	margin-right: 10px;
+	cursor: pointer;
 }
-.bannerv main div:last-child{
-    margin-right: 0px;
-}
-.bannerv main div:first-child{
+.banbox li.active{
 	background: rgba(0, 0, 0, 1.0);
 }
+.banbox li:last-child{
+    margin-right: 0px;
+}
+
 .banys{
 	width: 258px;
 	height: 148px;
@@ -525,6 +550,7 @@ nav{
 .f1{
 	width: 100%;
 	height: auto;
+	overflow: hidden;
 }
 .F1{
 	width: 1200px;
@@ -565,6 +591,7 @@ nav{
 .Nf1{
 	width: 100%;
 	height: auto;
+	overflow: hidden;
 }
 .nF1{
 	width: 1198px;
