@@ -1212,7 +1212,7 @@ aside ul{
 	height: 100%;
 	background: #fff;
 }
-aside ul li{
+.btn{
 	text-align: center;
 	vertical-align: middle;
 	width: 32px;
@@ -1221,8 +1221,9 @@ aside ul li{
 	padding: 0 2px;
 	border-bottom: 1px dotted #333;
 	position: relative;
+	cursor: pointer;
 }
-aside ul li span{
+.btn span{
 	width: 100%;
 	height: 100%;
 	display: block;
@@ -1236,21 +1237,81 @@ aside ul li span{
 	box-sizing: border-box;
 	padding-top: 4px;
 }
-aside ul li:first-child span{
+.btn.active span{
 	opacity: 1;
 }
-aside ul li span:hover{
+.btn span:hover{
 	opacity: 1;
 }
-.back{
+#back{
 	border: none;
 	background: #918888;
 	font-size: 12px;
 	color: #fff;
 	height: 54px;
+	text-align: center;
+	cursor: pointer;
 }
-.back i{
+#back i{
 	display: block;
 	font-size: 12px;
 	color: #fff
+}
+.navtop{
+	width: 100%;
+	height: 61px;
+	border-bottom: 1px solid #24a7f9;
+	position: fixed;
+	top: 0;
+	left: 0;
+	box-shadow: 0px 2px 10px 5px rgba(0,0,0,0.3);
+	background: #fff;
+	z-index: 1000;
+}
+.navtop1{
+	width: 1200px;
+	height: 61px;
+	margin: 0 auto;
+}
+.navimg{
+	display: block;
+	float: left;
+	width: auto;
+	left: auto;
+	margin-top: 10px;
+}
+.navimg img{
+	width: 230px;
+	height: 42px;
+}
+.navtop1 ul{
+	width: 590px;
+	height: 61px;
+	box-sizing: border-box;
+	padding-top: 10px;
+	padding-left: 60px;
+	float: left;
+}
+.navtop1 ul li{
+	padding: 0 17px;
+	float: left;
+	height: 51px;
+}
+.navtop1 ul li a{
+	display: block;
+    font-size: 16px;
+	height: 33px;
+	border-radius: 5px;
+	color: #333;
+	background: #fff;
+	line-height: 33px;
+	padding: 0 5px;
+}
+.navtop1 ul li:first-child a{
+	background: #24a7f9;
+	color: #fff;
+}
+.navtop1 ul li a:hover{
+	background: #24a7f9;
+	color: #fff;
 }

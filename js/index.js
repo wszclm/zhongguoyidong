@@ -51,3 +51,65 @@
         banner('l');
     }
 }
+
+
+
+{
+    let aside=document.querySelector('aside');
+    let btns=document.querySelectorAll('.btn');
+    let floors=document.querySelectorAll('.Nf1');
+    let Top=document.querySelector('.navtop');
+    window.onscroll=function () {
+        if (document.documentElement.scrollTop>600){
+            Top.style.display="block";
+        }else {
+            Top.style.display="none";
+        }
+        if (document.documentElement.scrollTop>700){
+            aside.style.display="block";
+        }else {
+            aside.style.display="none";
+        }
+        floors.forEach(function (value, index) {
+            if (document.documentElement.scrollTop>value.offsetTop-160){
+                for (let i=0;i<btns.length;i++){
+                    btns[i].classList.remove('active');
+                }
+                btns[index].classList.add("active")
+            }
+        })
+    }
+
+
+    btns.forEach(function (value, index) {
+        value.onclick=function () {
+            let ot=floors[index].offsetTop-120;
+            let now=document.documentElement.scrollTop;
+            let speed=(ot-now)*30/300;
+            let time=0;
+            let t=setInterval(function () {
+                now+=speed;
+                document.documentElement.scrollTop=now;
+                time+=30;
+                if (time===300){
+                    clearInterval(t);
+                    now=ot;
+                }
+            },30)
+        }
+    })
+
+    let totop=document.querySelector('#back');
+    totop.onclick=function () {
+        let st=document.documentElement.scrollTop;
+        let speed=st*30/500;
+        let t=setInterval(function () {
+            st-=speed;
+            if (st<=0){
+                st=0;
+                clearInterval(t);
+            }
+            document.documentElement.scrollTop=st;
+        },30)
+    }
+}
