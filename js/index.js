@@ -113,3 +113,149 @@
         },30)
     }
 }
+{
+    let num=4;
+    let father=document.querySelector('.yhzq_lb')
+    let innerobj=document.querySelector('.yhzq_lbt');
+    let l=document.querySelectorAll('.yhzq_lbt a').length;
+    let prev=document.querySelector('.yhzqz1');
+    let next=document.querySelector('.yhzqy1')
+    let dir="r"
+    function banner() {
+        if (dir==="r"){
+            num++;
+        }else if (dir==="t"){
+            num--;
+        }
+            innerobj.style.transition="all 1s";
+        if (num<0){
+            innerobj.style.marginLeft=0;
+        }
+        innerobj.style.marginLeft=-num*241+"px";
+    }
+    let st=setInterval(banner,2000);
+    innerobj.addEventListener("transitionend",function () {
+        flag=true;
+        if (num===11){
+            innerobj.style.transition="none";
+            innerobj.style.marginLeft="-964px";
+            num=4;
+        };
+        if (num===0){
+            innerobj.style.transition="none";
+            innerobj.style.marginLeft="-1687px";
+            num=7;
+        }
+    })
+    let flag=true;
+    next.onclick=function () {
+        if (flag){
+            dir="r";
+            flag=false;
+            banner();
+        }
+    }
+    prev.onclick=function () {
+        if (flag){
+            dir="t";
+            flag=false;
+            banner();
+        }
+    }
+    father.onmouseover = function () {
+        clearTimeout(st);
+    }
+    father.onmouseout = function () {
+        st=setInterval(banner,2000);
+    }
+    window.onfocus=function () {
+        st=setInterval(banner,2000);
+    }
+    window.onblur=function () {
+        clearTimeout(st);
+    }
+}
+{
+    let btns=document.querySelectorAll('.F5bd ul li');
+    let imgs=document.querySelectorAll('.F5b ul li');
+    let father=document.querySelector('.F5bn');
+    btns.forEach(function (value, index) {
+        value.onclick=function () {
+            for (let i=0;i<btns.length;i++){
+                btns[i].classList.remove('active');
+                imgs[i].classList.remove('active');
+            }
+            btns[index].classList.add('active');
+            imgs[index].classList.add('active');
+            n=index;
+        }
+    })
+    let n=0;
+    function minbanner() {
+        n++;
+        if (n===btns.length){
+            n=0;
+        }
+        for (let i=0;i<btns.length;i++){
+            btns[i].classList.remove('active');
+            imgs[i].classList.remove('active');
+        }
+        btns[n].classList.add('active');
+        imgs[n].classList.add('active');
+    }
+    let t=setInterval(minbanner,2000);
+    father.onmouseover=function () {
+        clearInterval(t);
+    }
+    father.onmouseout=function () {
+        t=setInterval(minbanner,2000)
+    }
+}
+{
+    let a2=document.querySelector('.a2');
+    let evm=document.querySelector('.evm');
+    a2.onmouseenter=function () {
+        this.style.background="#fff";
+        evm.style.display="block";
+    }
+    a2.onmouseleave=function () {
+        this.style.background="";
+        evm.style.display="";
+    }
+}
+{
+    let father=document.querySelector('.banner')
+    let bnzs=document.querySelectorAll('.bnz');
+    let bannerzs=document.querySelectorAll('.bannerz li');
+    bannerzs.forEach(function (val,index) {
+        val.onmouseenter=function (e) {
+            e.stopPropagation()
+            for (let i=0;i<bannerzs.length;i++){
+                bnzs[i].style.display="none";
+                bannerzs[i].classList.remove('active');
+            }
+            console.log(bnzs[index])
+            bnzs[index].style.display="block";
+            this.classList.add('active');
+        }
+        father.onmouseleave=function () {
+            for (let i=0;i<bannerzs.length;i++) {
+                bnzs[i].style.display = "none"
+                bannerzs[i].classList.remove('active');
+            }
+        }
+    })
+}
+{
+    let ss=document.querySelector('.ss');
+    ss.onfocus=function () {
+        if (this.value=="流量"){
+            this.value=""
+        }
+    }
+    ss.onblur=function () {
+        if (this.value==""){
+            this.value="流量"
+        }
+    }
+}
