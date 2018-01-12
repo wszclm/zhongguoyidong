@@ -1298,6 +1298,7 @@ aside{
 	bottom: 0;
 	margin-bottom: auto;
 	margin-top: auto;
+	display:none;
 }
 aside ul{
 	width: 100%;
